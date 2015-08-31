@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script src="js/resource/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controller/section.js"></script>
+    <script src="js/controller/talk.js"></script>
+    <script src="js/service/DBA.js"></script>
+  </head>
+  <body ng-app="dharmaseed">
+    <ion-side-menus>
+
+      <ion-side-menu-content>
+
+        <ion-nav-bar class="bar-stable">
+          <ion-nav-buttons side="left">
+            <button class="button button-icon" menu-toggle="left">
+              <i class="icon ion-navicon"></i>
+            </button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-nav-view name="main-content">
+        </ion-nav-view>
+
+      </ion-side-menu-content>
+
+
+      <ion-side-menu side="left" ng-controller="section">
+
+        <ion-header-bar class="bar-dark">
+          <h1 class="title">DharmaSeed</h1>
+        </ion-header-bar>
+
+        <ion-content overflow-scroll="true" class="has-header">
+          <ion-list>
+            <ion-item menu-close href="#/latest">
+              Latest
+            </ion-item>
+            <ion-item menu-close href="#/teacher">
+              Teacher
+            </ion-item>
+            <ion-item menu-close href="#/collection">
+              Collection
+            </ion-item>
+            <ion-item menu-close href="#/search">
+              Search
+            </ion-item>
+            <ion-item menu-close href="#/mydharma">
+              My dharma
+            </ion-item>
+            <ion-item menu-close ng-click="showPlaying()">
+              Playing
+            </ion-item>
+          </ion-list>
+          <ion-list class="bottom-list">
+            <ion-item menu-close href="donate">
+              Donate
+            </ion-item>
+          </ion-list>
+        </ion-content>
+
+      </ion-side-menu>
+
+    </ion-side-menus>
+
+  </body>
+</html>
