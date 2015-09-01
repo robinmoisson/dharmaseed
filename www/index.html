@@ -15,6 +15,10 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <script src="js/resource/persistence.js"></script>
+    <script src="js/resource/persistence.store.sql.js"></script>
+    <script src="js/resource/persistence.store.websql.js"></script>
+    <script src="js/resource/persistence.store.cordovasql.js"></script>
     <script src="js/resource/ng-cordova.min.js"></script>
     <script src="cordova.js"></script>
 
@@ -22,7 +26,7 @@
     <script src="js/app.js"></script>
     <script src="js/controller/section.js"></script>
     <script src="js/controller/talk.js"></script>
-    <script src="js/service/DBA.js"></script>
+    <script src="js/service/persistence.js"></script>
   </head>
   <body ng-app="dharmaseed">
     <ion-side-menus>
@@ -37,7 +41,7 @@
           </ion-nav-buttons>
         </ion-nav-bar>
 
-        <ion-nav-view name="main-content">
+        <ion-nav-view name="main-content" class="has-header">
         </ion-nav-view>
 
       </ion-side-menu-content>
