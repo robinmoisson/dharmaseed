@@ -17,14 +17,14 @@
 
     <script src="js/resource/persistence.js"></script>
     <script src="js/resource/persistence.store.sql.js"></script>
-    <script src="js/resource/persistence.store.websql.js"></script>
     <script src="js/resource/persistence.store.cordovasql.js"></script>
-    <script src="js/resource/ng-cordova.min.js"></script>
+    <script src="js/resource/ng-cordova.js"></script>
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controller/section.js"></script>
+    <script src="js/controller/teacher.js"></script>
     <script src="js/controller/talk.js"></script>
     <script src="js/service/persistence.js"></script>
   </head>
@@ -55,19 +55,19 @@
 
         <ion-content overflow-scroll="true" class="has-header">
           <ion-list>
-            <ion-item menu-close href="#/latest">
+            <ion-item menu-close ui-sref="latest">
               Latest
             </ion-item>
-            <ion-item menu-close href="#/teacher">
+            <ion-item menu-close ui-sref="teacher">
               Teacher
             </ion-item>
-            <ion-item menu-close href="#/collection">
+            <ion-item menu-close ui-sref="collection">
               Collection
             </ion-item>
-            <ion-item menu-close href="#/search">
+            <ion-item menu-close ui-sref="search">
               Search
             </ion-item>
-            <ion-item menu-close href="#/mydharma">
+            <ion-item menu-close ui-sref="mydharma">
               My dharma
             </ion-item>
             <ion-item menu-close ng-click="showPlaying()">
@@ -75,7 +75,7 @@
             </ion-item>
           </ion-list>
           <ion-list class="bottom-list">
-            <ion-item menu-close href="donate">
+            <ion-item menu-close ui-sref="donate">
               Donate
             </ion-item>
           </ion-list>

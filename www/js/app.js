@@ -9,28 +9,37 @@ var app = angular.module('dharmaseed', ['ionic', 'ngCordova'])
       StatusBar.styleDefault();
     }
 
-    // Persistence.preload();
+    Persistence.preload();
   });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('newest', {
-      url: '/newest',
+    .state('latest', {
+      url: '/latest',
       views: {
         'main-content': {
-          templateUrl: 'template/talk-list.html',
-          controller: 'talkNewestCtrl'
+          templateUrl: 'template/talk.list.html',
+          controller: 'talkLatestCtrl'
         }
       },
       params: {
         filter: null
       }
+    })
+    .state('teacher', {
+      url: '/teacher',
+      views: {
+        'main-content': {
+          templateUrl: 'template/teacher.list.html',
+          controller: 'teacherListCtrl'
+        }
+      }
     });
 
   $urlRouterProvider
     .when('/', function ($state) {
-      $state.go('newest');
+      $state.go('latest');
     })
     .otherwise("/");
 

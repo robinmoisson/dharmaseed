@@ -1,0 +1,12 @@
+<ion-list>
+  <ion-item ng-repeat="teacher in teachers" class="item-thumbnail-left" ui-sref="teacher.detail" ui-srel-options="{id: teacher.id}">
+    <img ng-src="{{teacher.pictureLink}}">
+    <h2>{{teacher.name}}</h2>
+    <p><em>
+      <ng-pluralize count="teacher.talkCount"
+                    when="{'0': 'No talk',
+                           'one': '1 talk',
+                           'other': '{} talks'}">
+</ng-pluralize></em></p>
+  </ion-item>
+</ion-list>
