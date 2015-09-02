@@ -1,4 +1,4 @@
-app.service('Persistence', function($q){
+app.service('Persistence', function($q, $ionicPlatform, $cordovaSQLite){
 
   self = this;
 
@@ -64,7 +64,7 @@ app.service('Persistence', function($q){
   entities.Collection.index(['name', 'dharma'], {unique: true});
   entities.Talk.index(['name', 'dharma'], {unique: true});
 
-  // persistence.debug = true;
+  persistence.debug = true;
 
   var schemaSynced = $q.defer();
   persistence.schemaSync(function() {
@@ -98,6 +98,33 @@ app.service('Persistence', function($q){
   };
 
   self.preloaded = preloaded.promise;
+
+
+  /*
+   * A wrapper for executing custom queries through persistence.js
+   */
+  self.query = function (query, parameters) {
+    parameters = parameters || [];
+    var q = $q.defer();
+
+    var ready = $q.defer();
+
+    $q.all([self.schemaSynced, self.preloaded]).then(function(){
+      persistence.db.conn.transaction(function(sqlt){
+        sqlt.executeSql(
+          query,
+          parameters,
+          function(result){
+            q.resolve(result);
+          },
+          function(error){
+            q.reject(error);
+          }
+        );
+      });
+    });
+    return q.promise;
+  };
 
   var teachers = [
     new self.Entities.Teacher({

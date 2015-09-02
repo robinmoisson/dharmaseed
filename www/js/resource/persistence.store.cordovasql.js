@@ -232,6 +232,7 @@ persistence.store.cordovasql.config = function (persistence, dbname, dbversion, 
   if (!conn) {
     throw new Error("No supported database found in this browser.");
   }
+  persistence.db.conn = conn;
 };
 
 try {
